@@ -19,19 +19,30 @@ Modal.setAppElement('#root');
 
 export const TodosHeader = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const date = new Date();
 
   return (
     <>
       <div className="px-5">
-        <h2 className="my-2 font-bold">Tasks</h2>
-        <div className="flex justify-between text-gray-400">
-          <input type="date" className="border w-2/3 rounded" />|
-          <button
-            onClick={() => setIsOpen(true)}
-            className="w-1/4 text-blue-500 text-sm"
-          >
-            <FontAwesomeIcon icon={faPlusCircle} /> Add Task
-          </button>
+        <div className="flex justify-between text-gray-400 pt-5">
+          <div className="">
+            <h2 className="font-bold text-black">Tasks</h2>
+          </div>
+          <div className="w-5/6 lg:w-1/4">
+            <input
+              type="text"
+              placeholder={`Created: ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} \uD83D\uDCC5`}
+              className="border w-8/12 lg:w-1/2 rounded mr-2 p-1"
+              disabled
+            />
+            |
+            <button
+              onClick={() => setIsOpen(true)}
+              className="w-1/4 text-blue-500 text-sm"
+            >
+              <FontAwesomeIcon icon={faPlusCircle} /> Add Task
+            </button>
+          </div>
         </div>
       </div>
       <Modal

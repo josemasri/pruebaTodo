@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch } from 'react-redux';
 import { todosActions } from '../../_actions';
 
-export const TodoItem = ({ todo: { id, title, createdAt, completed } }) => {
+export const TodoItem = ({ todo: { id, title, createdAt, completed, name } }) => {
   const dispatch = useDispatch();
 
   const toggleComplete = () => {
@@ -17,11 +17,7 @@ export const TodoItem = ({ todo: { id, title, createdAt, completed } }) => {
     <>
       <hr />
       <div
-        className="my-2"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '20% 40% 40%',
-        }}
+        className="todos-display my-2"
       >
         <button onClick={toggleComplete}>
           <FontAwesomeIcon icon={completed ? faCheckCircle : faCircle} />
@@ -31,6 +27,7 @@ export const TodoItem = ({ todo: { id, title, createdAt, completed } }) => {
           {createdAtFormated.getMonth() + 1}/{createdAtFormated.getDate()}/
           {createdAtFormated.getFullYear()}
         </span>
+        <span>{name}</span>
       </div>
     </>
   );

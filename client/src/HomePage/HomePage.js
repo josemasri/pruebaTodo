@@ -4,6 +4,7 @@ import { Todos } from './components/Todos';
 import { TodosHeader } from './components/TodosHeader';
 import { useDispatch } from 'react-redux';
 import { todosActions } from '../_actions';
+import './HomePage.css';
 
 export const HomePage = () => {
   const dispatch = useDispatch();
@@ -12,10 +13,12 @@ export const HomePage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div className="max-w-4xl mx-auto">
-      <Header />
-      <TodosHeader />
-      <Todos />
+    <div className="mx-auto lg:p-5 bg-gray-100">
+      <div className="bg-white">
+        <Header />
+        <TodosHeader />
+        <Todos />
+      </div>
     </div>
   );
 };

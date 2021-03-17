@@ -1,0 +1,10 @@
+.todos-display {
+  display: grid;
+  grid-template-columns: 10% 30% 30% 30%;
+}
+
+@media (min-width: 768px) {
+  .todos-display {
+    grid-template-columns: 5% 20% 20% 65%;
+  }
+}
