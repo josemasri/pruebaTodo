@@ -8,6 +8,8 @@ export const todosActions = {
   update,
   updateCompleted,
   delete: _delete,
+  select,
+  cleanSelected,
 };
 
 function get(id) {
@@ -68,5 +70,22 @@ function _delete(id) {
         payload: id,
       })
     );
+  };
+}
+
+function select(id) {
+  return (dispatch) => {
+    dispatch({
+      type: todoConstants.SELECT,
+      payload: id,
+    });
+  };
+}
+
+function cleanSelected() {
+  return (dispatch) => {
+    dispatch({
+      type: todoConstants.CLEAN_SELECTED,
+    });
   };
 }

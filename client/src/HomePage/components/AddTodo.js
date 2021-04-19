@@ -23,10 +23,10 @@ export const AddTodo = ({ setIsOpen }) => {
   return (
     <div>
       <div className="">
-        <h2 className="font-bold">New Task</h2>
+        <h2 className="text-xl font-bold mb-2">New Task</h2>
         <hr />
       </div>
-      <div className="">
+      <div className="mt-5">
         <label htmlFor="">Title (Required)</label>
         <input
           value={todo.title}
@@ -36,7 +36,7 @@ export const AddTodo = ({ setIsOpen }) => {
           type="text"
         />
       </div>
-      <div className="">
+      <div className="mt-2">
         <label htmlFor="">Description</label>
         <textarea
           value={todo.name}
@@ -46,16 +46,16 @@ export const AddTodo = ({ setIsOpen }) => {
           rows="5"
         ></textarea>
       </div>
-      <div className="flex mt-3">
+      <div className="flex md:justify-end mt-5">
         <button
           onClick={() => setIsOpen(false)}
-          className="py-1 px-3 bg-gray-300 font-semibold"
+          className="py-2 px-7 bg-gray-300 rounded"
         >
           Cancel
         </button>
         <button
           onClick={addTodo}
-          className="py-1 px-3 ml-3 bg-blue-700 text-white font-semibold"
+          className="py-2 px-7 ml-3 bg-blue-700 text-white rounded"
         >
           Save
         </button>

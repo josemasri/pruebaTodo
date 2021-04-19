@@ -20,14 +20,14 @@ export const TodoItem = ({ todo: { id, title, createdAt, completed, name } }) =>
         className="todos-display my-2"
       >
         <button onClick={toggleComplete}>
-          <FontAwesomeIcon icon={completed ? faCheckCircle : faCircle} />
+          <FontAwesomeIcon className="text-gray-400" icon={completed ? faCheckCircle : faCircle} />
         </button>
         <span>{title}</span>
         <span>
           {createdAtFormated.getMonth() + 1}/{createdAtFormated.getDate()}/
           {createdAtFormated.getFullYear()}
         </span>
-        <span>{name}</span>
+        <span className="hidden md:inline-block">{name}</span>
       </div>
     </>
   );

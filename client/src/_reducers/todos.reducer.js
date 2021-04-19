@@ -7,10 +7,13 @@ const {
   UPDATE,
   UPDATE_COMPLETED,
   DELETE,
+  SELECT,
+  CLEAN_SELECTED,
 } = todoConstants;
 
 const initialState = {
   todos: [],
+  selectedTodo: null,
 };
 
 export function todos(state = initialState, action) {
@@ -64,6 +67,16 @@ export function todos(state = initialState, action) {
         todos: state.todos.filter((todo) => todo.id !== action.payload),
       };
 
+    case SELECT:
+      return {
+        ...state,
+        selectedTodo: action.payload,
+      };
+    case CLEAN_SELECTED:
+      return {
+        ...state,
+        selectedTodo: null,
+      };
     default:
       return state;
   }

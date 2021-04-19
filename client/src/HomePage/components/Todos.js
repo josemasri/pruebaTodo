@@ -1,10 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { TodoItem } from './TodoItem';
+import {todosActions} from '../../_actions'
 
 export const Todos = () => {
   const todos = useSelector((state) => state.todos.todos);
+  const dispatch = useDispatch();
 
   return (
     <div className="py-5" style={{ height: '75vh' }}>
@@ -15,12 +17,12 @@ export const Todos = () => {
         <div></div>
         <h4>Title</h4>
         <h4>Created</h4>
-        <h4>Description</h4>
+        <h4 className="hidden md:inline-block">Description</h4>
       </div>
       {todos.map((todo) => (
-        <Link to={`/${todo.id}`} key={todo.id}>
+        <div className="cursor-pointer" onClick={() => dispatch(todosActions.select(todo.id))}>
           <TodoItem todo={todo} />
-        </Link>
+        </div>
       ))}
       <hr />
     </div>
